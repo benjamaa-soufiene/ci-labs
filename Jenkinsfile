@@ -32,7 +32,7 @@ pipeline {
                     }
                     post {
                         always {
-                            recordIssues enabledForFailure: true, tools: [java(), checkStyle(pattern: 'checkstyle-result.xml', reportEncoding: 'UTF-8')]
+                            recordIssues enabledForFailure: true, tool: checkStyle()
                         }
                     }
                 }
