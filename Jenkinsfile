@@ -154,9 +154,7 @@ pipeline {
                     }
                 }
             stage('SonarQube') {
-                 docker.image('newtmitch/sonar-scanner').inside('-v /var/run/docker.sock:/var/run/docker.sock --entrypoint="" --net jenkins_jenkins') {
-            sh "/usr/local/bin/sonar-scanner -Dsonar.host.url=http://sonarqube:9000 -Dsonar.sources=."
-                 /*   agent {
+                   agent {
                         docker {
                             image 'maven:3.6.0-jdk-8-alpine'
                             args '-v /root/.m2/repository:/root/.m2/repository'
@@ -164,8 +162,9 @@ pipeline {
                         }
                     }
                     steps {
-                        sh " mvn sonar:sonar -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT"
-                    }*/
+                         sh "/usr/local/bin/sonar-scanner -Dsonar.host.url=http://172.18.0.2:9000 -Dsonar.sources=."
+                       // sh " mvn sonar:sonar -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT"
+                    }
                 }
             }
         }
