@@ -12,7 +12,7 @@ pipeline {
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = 'nexus-credentials'
 
-        SONARQUBE_URL = 'http://loclahost'
+        SONARQUBE_URL = 'http://172.18.0.2'
         SONARQUBE_PORT = '9000'
     }
 
@@ -153,7 +153,7 @@ pipeline {
                         }
                     }
                 }
-         /*   stage('SonarQube') {
+            stage('SonarQube') {
                     agent {
                         docker {
                             image 'maven:3.6.0-jdk-8-alpine'
@@ -164,7 +164,7 @@ pipeline {
                     steps {
                         sh " mvn sonar:sonar -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT"
                     }
-                }*/
+                }
             }
         }
         stage('Deploy Artifact To Nexus') {
