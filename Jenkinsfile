@@ -1,6 +1,9 @@
 pipeline {
     agent any
     environment {
+        JENKINS_USER_NAME = "${sh(script:'id -un', returnStdout: true).trim()}"
+        JENKINS_USER_ID = "${sh(script:'id -u', returnStdout: true).trim()}"
+        JENKINS_GROUP_ID = "${sh(script:'id -g', returnStdout: true).trim()}"
         SONARQUBE_URL = 'http://localhost'
         SONARQUBE_PORT = '9000'
     }
