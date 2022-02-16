@@ -154,7 +154,7 @@ pipeline {
                         }
                     }
                     steps {
-                        sh " mvn sonar:sonar -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT -Dsonar.login=admin -Dsonar.password=admin"
+                        sh " mvn sonar:sonar -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT"
                     }
                 }
             }
