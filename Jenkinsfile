@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        SONARQUBE_URL = 'http://172.18.0.2'
+        SONARQUBE_URL = 'http://localhost'
         SONARQUBE_PORT = '9000'
     }
 
@@ -151,7 +151,7 @@ pipeline {
                         }
                     }
                     steps {
-                        sh " mvn sonar:sonar -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT"
+                        sh " mvn sonar:sonar -Dsonar.host.url=$SONARQUBE_URL:$SONARQUBE_PORT -Dsonar.login=admin -Dsonar.password=admin"
                     }
                 }
             }
